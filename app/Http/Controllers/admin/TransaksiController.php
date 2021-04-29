@@ -2,10 +2,16 @@
 
 namespace App\Http\Controllers\admin;
 
+use App\Detailorder;
+use App\Exports\OrderExport;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use App\Order;
+use App\Product;
+use Maatwebsite\Excel\Facades\Excel;
+use Barryvdh\DomPDF\Facade as PDF;
+
 class TransaksiController extends Controller
 {
     public function index()
@@ -156,4 +162,9 @@ class TransaksiController extends Controller
         $order->save();
         return redirect()->route('admin.transaksi.perludikirim')->with('status','Berhasil Menginput No Resi');
     }
+    public function transaksiexport(){
+        return Excel::download(new OrderExport, 'Transaksi.xlsx');
+    }
+
+
 }

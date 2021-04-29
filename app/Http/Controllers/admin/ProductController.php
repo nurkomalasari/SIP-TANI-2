@@ -39,13 +39,14 @@ class ProductController extends Controller
         if($request->file('image')){
             //simpan foto produk yang di upload ke direkteri public/storage/imageproduct
             $file = $request->file('image')->store('imageproduct','public');
-            
+
             Product::create([
                 'name' => $request->name,
                 'description' => $request->description,
                 'price' => $request->price,
                 'stok' => $request->stok,
                 'weigth' => $request->weigth,
+                'penyakit' => $request->penyakit,
                 'categories_id' => $request->categories_id,
 
                 'image'          => $file
@@ -74,7 +75,7 @@ class ProductController extends Controller
 
         // Lalu update data nya ke database
         if( $request->file('image')){
-            
+
             Storage::delete('public/'.$prod->image);
             $file = $request->file('image')->store('imageproduct','public');
             $prod->image = $file;
@@ -84,10 +85,11 @@ class ProductController extends Controller
         $prod->description = $request->description;
         $prod->price = $request->price;
         $prod->weigth = $request->weigth;
+        $prod->penyakit = $request->penyakit;
         $prod->categories_id = $request->categories_id;
         $prod->stok = $request->stok;
-        
-        
+
+
         $prod->save();
 
         return redirect()->route('admin.product')->with('status','Berhasil Mengubah Kategori');

@@ -1,6 +1,6 @@
 @extends('user.app')
 @section('content')
-<div class="site-blocks-cover" style="background-image: url({{ asset('shopper') }}/images/pertanian.jpg);" data-aos="fade">
+<div class="site-blocks-cover" style="background-image: url({{ asset('shopper') }}/images/baner.png);" data-aos="fade">
     <div class="container">
     <div class="row align-items-start align-items-md-center justify-content-center">
         <div class="col-md-5 text-center text-md-center pt-5 pt-md-0">

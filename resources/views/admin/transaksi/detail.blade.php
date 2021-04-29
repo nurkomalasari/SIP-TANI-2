@@ -24,6 +24,7 @@
                       </div>
                       <div class="col text-right">
                       <a href="javascript:void(0)" onclick="window.history.back()" class="btn btn-primary">Kembali</a>
+
                       </div>
                     </div>
                     <hr>
@@ -152,5 +153,5 @@
               </div>
             </div>
           </div>
-          
+
 @endsection

@@ -47,6 +47,10 @@
                                 <input required type="number" class="form-control" name="weigth" value="{{ $product->weigth}}">
                                 </div>
                                 <div class="form-group">
+                                <label for="exampleInputUsername1">Penyakit</label>
+                                <input required type="text" class="form-control" name="penyakit" value="{{ $product->penyakit}}">
+                                </div>
+                                <div class="form-group">
                                 <label for="exampleInputUsername1">Harga</label>
                                 <input required type="number" class="form-control" name="price" value="{{ $product->price}}">
                                 </div>
@@ -74,5 +78,5 @@
               </div>
             </div>
           </div>
-          
+
 @endsection

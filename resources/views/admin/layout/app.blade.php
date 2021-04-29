@@ -4,7 +4,7 @@
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>Sport Center</title>
+    <title>Dashboard Admin</title>
     <!-- plugins:css -->
     <link rel="stylesheet" href="{{ asset('adminassets') }}/assets/vendors/mdi/css/materialdesignicons.min.css">
     <link rel="stylesheet" href="{{ asset('adminassets') }}/assets/vendors/css/vendor.bundle.base.css">
@@ -16,7 +16,7 @@
     <!-- Layout styles -->
     <link rel="stylesheet" href="{{ asset('adminassets') }}/assets/css/style.css">
     <link href="{{ asset('swal/dist/sweetalert2.min.css') }}" rel="stylesheet">
-    <link rel="shortcut icon" href="{{ asset('adminassets') }}/assets/images/favicon.png" />
+    <link rel="shortcut icon" href="{{ asset('adminassets') }}/assets/images/icon.png" />
     <link href="{{ asset('table/datatables/dataTables.bootstrap4.min.css') }}" rel="stylesheet">
   </head>
   <body>
@@ -24,7 +24,7 @@
       <!-- partial:partials/_navbar.html -->
       <nav class="navbar default-layout-navbar col-lg-12 col-12 p-0 fixed-top d-flex flex-row">
         <div class="text-center navbar-brand-wrapper d-flex align-items-center justify-content-center">
-          <a class="navbar-brand brand-logo" href="index.html"><img src="{{ asset('adminassets') }}/assets/images/logo.svg" alt="logo" /></a>
+          <a class="navbar-brand brand-logo" href="index.html"><img src="{{ asset('adminassets') }}/assets/images/siptani.png" alt="logo" /></a>
           <a class="navbar-brand brand-logo-mini" href="index.html"><img src="{{ asset('adminassets') }}/assets/images/logo-mini.svg" alt="logo" /></a>
         </div>
         <div class="navbar-menu-wrapper d-flex align-items-stretch">
@@ -34,21 +34,21 @@
           <ul class="navbar-nav navbar-nav-right">
             <li class="nav-item nav-profile dropdown">
               <a class="nav-link dropdown-toggle" id="profileDropdown" href="#" data-toggle="dropdown" aria-expanded="false">
-                <div class="nav-profile-img">
-                  <img src="{{ asset('adminassets') }}/assets/images/faces/face1.jpg" alt="image">
-                  <span class="availability-status online"></span>
-                </div>
+                {{-- <div class="nav-profile-img">
+                  {{-- <img src="{{ asset('adminassets') }}/assets/images/faces/face1.jpg" alt="image"> --}}
+                  {{-- <span class="availability-status online"></span> --}}
+                {{-- </div> --}}
                 <div class="nav-profile-text">
-                  <p class="mb-1 text-black">Admin SportCentre</p>
+                  <p class="mb-1 text-black"> {{ Auth::user()->name }}</p>
                 </div>
               </a>
               <div class="dropdown-menu navbar-dropdown" aria-labelledby="profileDropdown">
                 <a class="dropdown-item" href="#">
-                  
+
                   <a class="dropdown-item" href="{{ route('logout') }}"
                     onclick="event.preventDefault();
                                   document.getElementById('logout-form').submit();">
-                    <i class="mdi mdi-logout mr-2 text-primary"></i> Logout 
+                    <i class="mdi mdi-logout mr-2 text-primary"></i> Logout
                 </a>
 
                 <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
@@ -69,14 +69,14 @@
           <ul class="nav">
             <li class="nav-item nav-profile">
               <a href="#" class="nav-link">
-                <div class="nav-profile-image">
+                {{-- <div class="nav-profile-image">
                   <img src="{{ asset('adminassets') }}/assets/images/faces/face1.jpg" alt="profile">
                   <span class="login-status online"></span>
                   <!--change to offline or busy as needed-->
-                </div>
+                </div> --}}
                 <div class="nav-profile-text d-flex flex-column">
-                  <span class="font-weight-bold mb-2">SportCenter</span>
-                  <span class="text-secondary text-small">Admin</span>
+                  <span class="font-weight-bold mb-2">Pemilik Toko</span>
+                  <span class="text-secondary text-small"> {{ Auth::user()->name }}</span>
                 </div>
                 <i class="mdi mdi-bookmark-check text-success nav-profile-badge"></i>
               </a>
@@ -145,8 +145,8 @@
           <!-- partial:partials/_footer.html -->
           <footer class="footer">
             <div class="d-sm-flex justify-content-center justify-content-sm-between">
-              <span class="text-muted text-center text-sm-left d-block d-sm-inline-block">Copyright © 2017 <a href="https://www.bootstrapdash.com/" target="_blank">BootstrapDash</a>. All rights reserved.</span>
-              <span class="float-none float-sm-right d-block mt-1 mt-sm-0 text-center">Hand-crafted & made with <i class="mdi mdi-heart text-danger"></i></span>
+              <span class="text-muted text-center text-sm-left d-block d-sm-inline-block">Copyright © 2021 <a href="https://www.bootstrapdash.com/" target="_blank">BootstrapDash</a>. All rights reserved.</span>
+              <span class="float-none float-sm-right d-block mt-1 mt-sm-0 text-center">Sip Tani <i class="mdi mdi-heart text-danger"></i></span>
             </div>
           </footer>
           <!-- partial -->
@@ -155,7 +155,7 @@
       </div>
       <!-- page-body-wrapper ends -->
     </div>
-   
+
     <!-- container-scroller -->
     <!-- plugins:js -->
     <script src="{{ asset('adminassets') }}/assets/vendors/js/vendor.bundle.base.js"></script>
@@ -196,7 +196,7 @@
     </script>
     @endif
     <script>
-      
+
       var t = $('#table').DataTable({
           "columnDefs": [ {
               "searchable": false,

@@ -22,7 +22,12 @@
                       <div class="col">
                       <h4 class="card-title">Data Pesanan Telah Selesai</h4>
                       </div>
+                      <div class="col text-right">
+                        <a href="{{route('transaksi-export')}}"  class="btn btn-primary">Export Pdf</a>
+
+                        </div>
                     </div>
+
                     <div class="table-responsive">
                       <table class="table table-bordered table-hovered" id="table">
                         <thead>
@@ -62,5 +67,5 @@
               </div>
             </div>
           </div>
-          
+
 @endsection

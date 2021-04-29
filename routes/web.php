@@ -25,7 +25,7 @@ Route::get('/pelanggan',function(){
     return 'Pelanggan';
 });
 
-Route::group(['middleware' => ['auth','checkRole:admin']],function(){    
+Route::group(['middleware' => ['auth','checkRole:admin']],function(){
     Route::get('/admin','DashboardController@index')->name('admin.dashboard');
     Route::get('/pengaturan/alamat','admin\PengaturanController@aturalamat')->name('admin.pengaturan.alamat');
     Route::get('/pengaturan/ubahalamat/{id}','admin\PengaturanController@ubahalamat')->name('admin.pengaturan.ubahalamat');
@@ -56,6 +56,7 @@ Route::group(['middleware' => ['auth','checkRole:admin']],function(){
     Route::post('/admin/transaksi/inputresi/{id}','admin\TransaksiController@inputresi')->name('admin.transaksi.inputresi');
     Route::get('/admin/transaksi/selesai','admin\TransaksiController@selesai')->name('admin.transaksi.selesai');
     Route::get('/admin/transaksi/dibatalkan','admin\TransaksiController@dibatalkan')->name('admin.transaksi.dibatalkan');
+    Route::get('admin/export-transaksi','admin\TransaksiController@transaksiexport')->name('transaksi-export');
 
     Route::get('/admin/rekening','admin\RekeningController@index')->name('admin.rekening');
     Route::get('/admin/rekening/edit/{id}','admin\RekeningController@edit')->name('admin.rekening.edit');
@@ -86,6 +87,8 @@ Route::group(['middleware' => ['auth','checkRole:customer']],function(){
     Route::get('/order/pesanandibatalkan/{id}','user\OrderController@pesanandibatalkan')->name('user.order.pesanandibatalkan');
     Route::get('/order/pembayaran/{id}','user\OrderController@pembayaran')->name('user.order.pembayaran');
     Route::post('/order/kirimbukti/{id}','user\OrderController@kirimbukti')->name('user.order.kirimbukti');
+    Route::get('cetak-struk/{id}','user\OrderController@cetakstruk')->name('cetak-struk');
+
 });
 
 Route::get('/ongkir', 'OngkirController@index');

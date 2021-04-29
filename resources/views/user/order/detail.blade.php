@@ -14,10 +14,14 @@
         <div class="col-md-12 text-center">
             <h2 class="display-5">Detail Pesanan Anda</h2>
         </div>
+        <div class="col text-right">
+            <a href="{{url('cetak-struk')}}/{{$order->id}}"  class="btn btn-primary">Cetak Struk</a>
+
+            </div>
     </div>
     <div class="row">
         <div class="col-md-12">
-            <div class="card">  
+            <div class="card">
                 <div class="card-body">
                 <div class="row">
                 <div class="col-md-8">
@@ -84,13 +88,13 @@
                             @endforeach
                         </tbody>
                         </table>
-                    
+
                 </div>
                 </div>
             </div>
         </div>
     </div>
-    
+
 
     </div>
 </div>

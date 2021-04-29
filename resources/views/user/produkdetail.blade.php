@@ -6,13 +6,13 @@
         <div class="col-md-12 mb-0"><a href="index.html">Home</a> <span class="mx-2 mb-0">/</span> <strong class="text-black">Detail Produk</strong></div>
     </div>
     </div>
-</div>  
+</div>
 
 <div class="site-section">
     <div class="container">
     <div class="row">
         <div class="col-md-6">
-        <img src="{{ asset('storage/'.$produk->image) }}" alt="Image" class="img-fluid">
+        <img src="{{ asset('storage/'.$produk->image) }}" alt="" class="img-fluid">
         </div>
         <div class="col-md-6">
         <h2 class="text-black">{{ $produk->name }}</h2>

@@ -6,9 +6,12 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Order;
 use App\Detailorder;
+use App\Product;
 use App\Rekening;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\DB;
+use Barryvdh\DomPDF\Facade as PDF;
+
 class OrderController extends Controller
 {
 
@@ -88,7 +91,7 @@ class OrderController extends Controller
         }
         return redirect()->route('user.order');
     }
-    
+
     public function pembayaran($id)
     {
         //menampilkan view pembayaran
@@ -155,7 +158,7 @@ class OrderController extends Controller
         }
 
         $order = DB::table('order')->where('invoice',$request->invoice)->first();
-        
+
         $barang = DB::table('keranjang')->where('user_id',$userid)->get();
         //lalu masukan barang2 yang dibeli ke table detail order
         foreach($barang as $brg){
@@ -173,5 +176,13 @@ class OrderController extends Controller
         }
         // dd($request);
 
+    }
+    public function cetakstruk($id){
+        $produk     = Product::all();
+        $order = Order::where('id',$id)->first();
+        $detail = Detailorder::where('id', $order->id)->get();
+
+        $pdf = PDF::loadview('user.order.struk', compact('order','detail'));
+       return $pdf->download('struk');
     }
 }
