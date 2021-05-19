@@ -1,6 +1,6 @@
 @extends('user.app')
 @section('content')
-<div class="site-blocks-cover" style="background-image: url({{ asset('shopper') }}/images/baner.png);" data-aos="fade">
+<div class="site-blocks-cover" style="background-image: url({{ asset('shopper') }}/images/baner.png)" data-aos="fade">
     <div class="container">
     <div class="row align-items-start align-items-md-center justify-content-center">
         <div class="col-md-5 text-center text-md-center pt-5 pt-md-0">
@@ -25,7 +25,8 @@
         </div>
         <div class="text">
             <h2 class="text-uppercase">Pengiriman</h2>
-            <p>Pengiriman bisa ke seluruh wilayah indonesia / menggunakan sistem COD</p>
+            <p>Pengiriman bisa ke seluruh wilayah Kecamatan Lohbener / menggunakan sistem Pick Up
+            </p>
         </div>
         </div>
         <div class="col-md-6 col-lg-4 d-lg-flex mb-4 mb-lg-0 pl-4" data-aos="fade-up" data-aos-delay="100">
@@ -34,7 +35,7 @@
         </div>
         <div class="text">
             <h2 class="text-uppercase">Kualitas Oke</h2>
-            <p>Kualitas barangnya terjamin karena semuanya disini original 100%</p>
+            <p>Kualitas pupuknya terjamin karena semuanya disini original 100%</p>
         </div>
         </div>
         <div class="col-md-6 col-lg-4 d-lg-flex mb-4 mb-lg-0 pl-4" data-aos="fade-up" data-aos-delay="200">
@@ -63,14 +64,17 @@
             <div class="item">
             <div class="block-4 text-center">
                 <a href="{{ route('user.produk.detail',['id' =>  $produk->id]) }}">
-                <figure class="block-4-image">
-                <img src="{{ asset('storage/'.$produk->image) }}" alt="Image placeholder" class="img-fluid" width="100%" style="height:300px">
+                <figure class="block-3-image">
+                <img src="{{ asset('storage/'.$produk->image) }}" alt="Image placeholder" class="img-fluid" width="50%" style="height:300px">
                 </figure>
                 </a>
                 <div class="block-4-text p-4">
                 <h3><a href="{{ route('user.produk.detail',['id' =>  $produk->id]) }}">{{ $produk->name }}</a></h3>
-                <p class="mb-0">{{ $produk->price }}</p>
-                <a href="{{ route('user.produk.detail',['id' =>  $produk->id]) }}" class="btn btn-primary mt-2">Detail</a>
+
+                    <strong>Harga : </strong> Rp. {{ number_format($produk->price)}} <br>
+                    <strong>Stok : </strong> {{$produk->stok}} <br>
+
+                <a href="{{ route('user.produk.detail',['id' =>  $produk->id]) }}" class="btn btn-primary mt-2"><i class="fas fa-shopping-cart"></i>Belanja</a>
                 </div>
             </div>
             </div>
@@ -81,3 +85,6 @@
     </div>
 </div>
     @endsection
+
+
+

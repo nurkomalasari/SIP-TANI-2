@@ -12,7 +12,7 @@ class DashboardController extends Controller
         //ambil data data untuk ditampilkan di card pada dashboard
         $pendapatan = DB::table('order')
                         ->select(DB::raw('SUM(subtotal) as penghasilan'))
-                        ->where('status_order_id',5)
+                        ->where('status_order_id',3)
                         ->first();
         $transaksi = DB::table('order')
                         ->select(DB::raw('COUNT(id) as total_order'))
@@ -33,7 +33,7 @@ class DashboardController extends Controller
             'pelanggan'  => $pelanggan,
             'order_baru' => $order_terbaru
         );
-        
+
         return view('admin/dashboard',$data);
     }
 }

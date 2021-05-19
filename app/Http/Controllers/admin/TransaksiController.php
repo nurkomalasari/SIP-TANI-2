@@ -52,21 +52,21 @@ class TransaksiController extends Controller
         return view('admin.transaksi.detail',$data);
     }
 
-    public function perludicek()
-    {
-        //ambil data order yang status nya 2 atau belum di cek / sudah bayar
-        $order = DB::table('order')
-                    ->join('status_order','status_order.id','=','order.status_order_id')
-                    ->join('users','users.id','=','order.user_id')
-                    ->select('order.*','status_order.name','users.name as nama_pemesan')
-                    ->where('order.status_order_id',2)
-                    ->get();
-        $data = array(
-            'orderbaru' => $order
-        );
+    // public function perludicek()
+    // {
+    //     //ambil data order yang status nya 2 atau belum di cek / sudah bayar
+    //     $order = DB::table('order')
+    //                 ->join('status_order','status_order.id','=','order.status_order_id')
+    //                 ->join('users','users.id','=','order.user_id')
+    //                 ->select('order.*','status_order.name','users.name as nama_pemesan')
+    //                 ->where('order.status_order_id',2)
+    //                 ->get();
+    //     $data = array(
+    //         'orderbaru' => $order
+    //     );
 
-        return view('admin.transaksi.perludicek',$data);
-    }
+    //     return view('admin.transaksi.perludicek',$data);
+    // }
 
     public function perludikirim()
     {
@@ -75,7 +75,7 @@ class TransaksiController extends Controller
                     ->join('status_order','status_order.id','=','order.status_order_id')
                     ->join('users','users.id','=','order.user_id')
                     ->select('order.*','status_order.name','users.name as nama_pemesan')
-                    ->where('order.status_order_id',3)
+                    ->where('order.status_order_id',2)
                     ->get();
         $data = array(
             'orderbaru' => $order
@@ -91,7 +91,7 @@ class TransaksiController extends Controller
                     ->join('status_order','status_order.id','=','order.status_order_id')
                     ->join('users','users.id','=','order.user_id')
                     ->select('order.*','status_order.name','users.name as nama_pemesan')
-                    ->where('order.status_order_id',5)
+                    ->where('order.status_order_id',3)
                     ->get();
         $data = array(
             'orderbaru' => $order
@@ -107,7 +107,7 @@ class TransaksiController extends Controller
                     ->join('status_order','status_order.id','=','order.status_order_id')
                     ->join('users','users.id','=','order.user_id')
                     ->select('order.*','status_order.name','users.name as nama_pemesan')
-                    ->where('order.status_order_id',6)
+                    ->where('order.status_order_id',4)
                     ->get();
         $data = array(
             'orderbaru' => $order
@@ -116,27 +116,27 @@ class TransaksiController extends Controller
         return view('admin.transaksi.dibatalkan',$data);
     }
 
-    public function dikirim()
-    {
-        //ambil data order yang status nya 4 atau sedang dikirim
-        $order = DB::table('order')
-                    ->join('status_order','status_order.id','=','order.status_order_id')
-                    ->join('users','users.id','=','order.user_id')
-                    ->select('order.*','status_order.name','users.name as nama_pemesan')
-                    ->where('order.status_order_id',4)
-                    ->get();
-        $data = array(
-            'orderbaru' => $order
-        );
+    // public function dikirim()
+    // {
+    //     //ambil data order yang status nya 4 atau sedang dikirim
+    //     $order = DB::table('order')
+    //                 ->join('status_order','status_order.id','=','order.status_order_id')
+    //                 ->join('users','users.id','=','order.user_id')
+    //                 ->select('order.*','status_order.name','users.name as nama_pemesan')
+    //                 ->where('order.status_order_id',4)
+    //                 ->get();
+    //     $data = array(
+    //         'orderbaru' => $order
+    //     );
 
-        return view('admin.transaksi.dikirim',$data);
-    }
+    //     return view('admin.transaksi.dikirim',$data);
+    // }
 
     public function konfirmasi($id)
     {
         //function ini untuk mengkonfirmasi bahwa pelanngan sudah melakukan pembayaran
         $order = Order::findOrFail($id);
-        $order->status_order_id = 3;
+        $order->status_order_id = 2;
         $order->save();
 
         $kurangistok = DB::table('detail_order')->where('order_id',$id)->get();
@@ -153,15 +153,15 @@ class TransaksiController extends Controller
         return redirect()->route('admin.transaksi.perludikirim')->with('status','Berhasil Mengonfirmasi Pembayaran Pesanan');
     }
 
-    public function inputresi($id,Request $request)
-    {
-        //funtion untuk menginput no resi pesanan
-        $order = Order::findOrFail($id);
-        $order->no_resi = $request->no_resi;
-        $order->status_order_id = 4;
-        $order->save();
-        return redirect()->route('admin.transaksi.perludikirim')->with('status','Berhasil Menginput No Resi');
-    }
+    // public function inputresi($id,Request $request)
+    // {
+    //     //funtion untuk menginput no resi pesanan
+    //     $order = Order::findOrFail($id);
+    //     $order->no_resi = $request->no_resi;
+    //     $order->status_order_id = 4;
+    //     $order->save();
+    //     return redirect()->route('admin.transaksi.perludikirim')->with('status','Berhasil Menginput No Resi');
+    // }
     public function transaksiexport(){
         return Excel::download(new OrderExport, 'Transaksi.xlsx');
     }

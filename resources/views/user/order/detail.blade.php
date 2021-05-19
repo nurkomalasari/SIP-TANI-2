@@ -45,11 +45,8 @@
                             <th>Metode Pembayaran</th>
                             <td>:</td>
                             <td>
-                            @if($order->metode_pembayaran == 'trf')
-                                Transfer Bank
-                            @else
-                                COD
-                            @endif
+                            {{$order->metode_pembayaran = 'Payment gateway'}}
+
                             </td>
                         </tr>
                         <tr>
@@ -60,7 +57,7 @@
                     </table>
                 </div>
                 <div class="col-md-4 text-right">
-                    @if($order->status_order_id == 4)
+                    @if($order->status_order_id == 2)
                     <a href="{{ route('user.order.pesananditerima',['id' => $order->id]) }}" onclik="return confirm('Yakin ingin melanjutkan ?')" class="btn btn-primary">Pesanan Di Terima</a><br>
                     <small>Jika pesanan belum datang harap jangan tekan tombol ini</small>
                     @endif

@@ -44,10 +44,10 @@
             </table>
             </div>
            </div>
-        
+        </div>
     </div>
 
-    </div>
+</div>
 
     <div class="container">
     <div class="row mb-3">
@@ -85,7 +85,7 @@
                 @endforeach
             </tbody>
             </table>
-        
+        </div>
     </div>
 
     <div class="container">
@@ -120,7 +120,7 @@
             </tbody>
             </table>
             </div>
-        
+        </div>
     </div>
 
     </div>

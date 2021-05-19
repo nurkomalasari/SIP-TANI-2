@@ -5,9 +5,9 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Mukta:300,400,700"> 
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Mukta:300,400,700">
     <link rel="stylesheet" href="{{ asset('shopper') }}/fonts/icomoon/style.css">
-
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
     <link rel="stylesheet" href="{{ asset('shopper') }}/css/bootstrap.min.css">
     <link rel="stylesheet" href="{{ asset('shopper') }}/css/magnific-popup.css">
     <link rel="stylesheet" href="{{ asset('shopper') }}/css/jquery-ui.css">
@@ -21,7 +21,7 @@
     <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.7/css/select2.min.css" rel="stylesheet" />
   </head>
   <body>
-  
+
   <div class="site-wrap">
     <header class="site-navbar" role="banner">
       <div class="site-navbar-top">
@@ -43,7 +43,7 @@
             </div>
 
             <div class="col-6 col-md-4 order-3 order-md-3 text-right">
-            <div class="top-right links"> 
+            <div class="top-right links">
             <div class="site-top-icons">
               <ul>
               @if (Route::has('login'))
@@ -57,11 +57,11 @@
                                 <a class="dropdown-item" href="{{ route('user.alamat') }}">Pengaturan Alamat</a>
                                 <a class="dropdown-item" href="#">Pengaturan Akun</a>
                                 <a class="dropdown-item" href="#">
-                                
+
                                 <a class="dropdown-item" href="{{ route('logout') }}"
                                   onclick="event.preventDefault();
                                                 document.getElementById('logout-form').submit();">
-                                  <i class="mdi mdi-logout mr-2 text-primary"></i> Logout 
+                                  <i class="mdi mdi-logout mr-2 text-primary"></i> Logout
                               </a>
 
                               <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
@@ -82,7 +82,7 @@
                             <span class="icon icon-add_shopping_cart"></span>
                             <span class="count">{{ $total_keranjang->jumlah }}</span>
                             </a>
-                        </li> 
+                        </li>
                         <li>
                         <?php
                             $user_id = \Auth::user()->id;
@@ -116,10 +116,10 @@
             <li class="d-inline-block d-md-none ml-md-0"><a href="#" class="site-menu-toggle js-menu-toggle"><span class="icon-menu"></span></a></li>
             </div>
             </ul>
-            </div> 
+            </div>
           </div>
         </div>
-      </div> 
+      </div>
       <nav class="site-navigation text-right text-md-center" role="navigation">
         <div class="container">
           <ul class="site-menu js-clone-nav d-none d-md-block">
@@ -132,51 +132,26 @@
     </header>
 
     @yield('content')
-    
+
     <footer class="site-footer border-top">
       <div class="container">
-        <div class="row">
-          <div class="col-lg-6 mb-5 mb-lg-0">
-            <div class="row">
-              <div class="col-md-12">
-                <h3 class="footer-heading mb-4">Navigations</h3>
-              </div>
-              <div class="col-md-6 col-lg-4">
-                <ul class="list-unstyled">
-                  <li><a href="#">Sell online</a></li>
-                  <li><a href="#">Features</a></li>
-                  <li><a href="#">Shopping cart</a></li>
-                  <li><a href="#">Store builder</a></li>
-                </ul>
-              </div>
-              <div class="col-md-6 col-lg-4">
-                <ul class="list-unstyled">
-                  <li><a href="#">Mobile commerce</a></li>
-                  <li><a href="#">Dropshipping</a></li>
-                  <li><a href="#">Website development</a></li>
-                </ul>
-              </div>
-              <div class="col-md-6 col-lg-4">
-                <ul class="list-unstyled">
-                  <li><a href="#">Point of sale</a></li>
-                  <li><a href="#">Hardware</a></li>
-                  <li><a href="#">Software</a></li>
-                </ul>
-              </div>
-            </div>
-          </div>
-          <div class="col-md-6 col-lg-6">
-            <div class="block-5 mb-5">
-              <h3 class="footer-heading mb-4">Contact Info</h3>
-              <ul class="list-unstyled">
-                <li class="address">Jalan sukses menuju dunia akhirat</li>
-                <li class="phone"><a href="tel://23923929210">+62 3392 3929 210</a></li>
-                <li class="email">sport@gmail.com</li>
-              </ul>
-            </div>          
-          </div>
+
+<p>
+    <div class="col-md-3 col-lg-3">
+        <div class="block-5 mb-5">
+          <h3 class="footer-heading mb-4">Contact Info</h3>
+          <ul class="list-unstyled">
+            <li class="address">Jalan Sukasari Blok Dongkal Kecamatan. Lohbener Kabupaten. Indramayu</li>
+            <li class="phone"><a href="tel://23923929210">+62 3392 3929 210</a></li>
+            <li class="email">sport@gmail.com</li>
+          </ul>
         </div>
-        <div class="row pt-5 mt-5 text-center">
+      </div>
+    </div>
+</p>
+
+
+        <div class="row pt-5 mt-3 text-center">
           <div class="col-md-12">
             <p>
             <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
@@ -184,7 +159,7 @@
             <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
             </p>
           </div>
-          
+
         </div>
       </div>
     </footer>

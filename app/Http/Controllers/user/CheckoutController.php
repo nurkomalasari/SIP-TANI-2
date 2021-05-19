@@ -26,36 +26,36 @@ class CheckoutController extends Controller
             $berat = $k->weigth * $k->qty;
             $berattotal = $berattotal + $berat;
         }
-        //lalu ambil id kota si pelanngan
-        $city = DB::table('alamat')->where('user_id',$id_user)->get();
-        $city_destination =  $city[0]->cities_id;
-        //ambil id kota toko
-        $alamat_toko = DB::table('alamat_toko')->first();
+        // //lalu ambil id kota si pelanngan
+        // $city = DB::table('alamat')->where('user_id',$id_user)->get();
+        // $city_destination =  $city[0]->cities_id;
+        // //ambil id kota toko
+        // $alamat_toko = DB::table('alamat_toko')->first();
 
-        //lalu hitung ongkirnya
-        $cost = RajaOngkir::ongkosKirim([
-            'origin'  => $alamat_toko->id,
-            'destination' => $city_destination,
-            'weight' => $berattotal,
-            'courier' => 'jne'
-        ])->get();
-        // dd($cost);
-        //ambil hasil nya
-        $ongkir =  $cost[0]['costs'][0]['cost'][0]['value'];
-        
+        // //lalu hitung ongkirnya
+        // $cost = RajaOngkir::ongkosKirim([
+        //     'origin'  => $alamat_toko->id,
+        //     'destination' => $city_destination,
+        //     'weight' => $berattotal,
+        //     'courier' => 'jne','jnt'
+        // ])->get();
+        // // dd($cost);
+        // //ambil hasil nya
+        // $ongkir =  $cost[0]['costs'][0]['cost'][0]['value'];
+
         //lalu ambil alamat user untuk ditampilkan di view
         $alamat_user = DB::table('alamat')
         ->join('cities','cities.city_id','=','alamat.cities_id')
         ->join('provinces','provinces.province_id','=','cities.province_id')
         ->select('alamat.*','cities.title as kota','provinces.title as prov')
         ->where('alamat.user_id',$id_user)
-        ->first();    
-        
+        ->first();
+
         //buat kode invoice sesua tanggalbulantahun dan jam
         $data = [
             'invoice' => 'ALV'.Date('Ymdhi'),
             'keranjangs' => $keranjangs,
-            'ongkir' => $ongkir,
+            // 'ongkir' => $ongkir,
             'alamat' => $alamat_user
         ];
         return view('user.checkout',$data);

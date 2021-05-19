@@ -36,19 +36,19 @@
                         <td>Rp. {{ number_format($total,2,',','.') }}</td>
                       </tr>
                       @endforeach
-                      <tr>
+                      {{-- <tr>
                         <td>
                           Ongkir
                         </td>
                         <td>
                           Rp .{{ number_format($ongkir,2,',','.') }}
                         </td>
-                      </tr>
+                      </tr> --}}
                       <tr>
                         <td class="text-black font-weight-bold"><strong>Jumlah Pembayaran</strong></td>
                         <td class="text-black font-weight-bold">
-                        <?php $alltotal = $subtotal + $ongkir; ?>  
-                        <strong>Rp. {{ number_format($alltotal,2,',','.') }}</strong></td>
+
+                        <strong>Rp. {{ number_format($subtotal,2,',','.') }}</strong></td>
                       </tr>
                       <tr>
                       <td>Alamat Penerima</td>
@@ -65,17 +65,17 @@
                     <input type="text" name="no_hp" id="" class="form-control">
                   </div>
                   <input type="hidden" name="invoice" value="{{ $invoice }}">
-                  <input type="hidden" name="subtotal" value="{{ $alltotal }}">
-                  <input type="hidden" name="ongkir" value="{{ $ongkir }}">
-                  <div class="form-group">
+                  <input type="hidden" name="subtotal" value="{{ $subtotal }}">
+                  {{-- <input type="hidden" name="ongkir" value="{{ $ongkir }}"> --}}
+                  {{-- <div class="form-group">
                   <label for="">Pilih Metode Pembayaran</label>
                     <select name="metode_pembayaran" id="" class="form-control">
                       <option value="trf">Transfer</option>
                       <option value="cod">Cod</option>
                     </select>
                     <small>Jika memilih cod maka akan dikenakan biaya tambahan sebesar Rp. 10.000,00</small>
-                  </div>
-                 
+                  </div> --}}
+
 
                   <div class="form-group">
                     <button class="btn btn-primary btn-lg py-3 btn-block" type="submit">Pesan Sekarang</button>

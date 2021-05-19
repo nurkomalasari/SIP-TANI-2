@@ -10515,7 +10515,7 @@ code {
     height: 6px; }
 
 .bg-gradient-primary {
-  background: -webkit-gradient(linear, left top, right top, from(#258f33), to(#49dd8b)) !important;
+  background: -webkit-gradient(linear, left top, right top, from(#25718f), to(#49dd8b)) !important;
   background: linear-gradient(to right, #8cffae, #2cc45e) !important; }
 
 .bg-gradient-secondary {
@@ -10527,8 +10527,8 @@ code {
   background: linear-gradient(to right, #84d9bd, #017e31) !important; }
 
 .bg-gradient-info {
-  background: -webkit-gradient(linear, left top, right top, from(#0c662e), color-stop(99%, #1f8f2e)) !important;
-  background: linear-gradient(to right, #055f27, #04df3b 99%) !important; }
+  background: -webkit-gradient(linear, left top, right top, from(#d16baf), color-stop(99%, #1f8f2e)) !important;
+  background: linear-gradient(to right, #d0f05d, #04df3b 99%) !important; }
 
 .bg-gradient-warning {
   background: -webkit-gradient(linear, left top, right top, from(#f6e384), to(#ffd500)) !important;

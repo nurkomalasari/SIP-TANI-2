@@ -16,7 +16,7 @@
     <!-- Layout styles -->
     <link rel="stylesheet" href="{{ asset('adminassets/') }}assets/css/style.css">
     <!-- End layout styles -->
-    <link rel="shortcut icon" href="{{ asset('adminassets/') }}assets/images/favicon.png" />
+    <link rel="shortcut icon" href="{{ asset('adminassets/') }}assets/images/icon.png" />
   </head>
   <body>
     <div class="container-scroller">
@@ -26,7 +26,7 @@
             <div class="col-lg-4 mx-auto">
               <div class="auth-form-light text-left p-5">
                 <div class="brand-logo">
-                  <img src="../../assets/images/logo.svg">
+                  <img src="{{ asset('adminassets/') }}assets/images/icon.png">
                 </div>
                 <h4>New here?</h4>
                 <h6 class="font-weight-light">Signing up is easy. It only takes a few steps</h6>
