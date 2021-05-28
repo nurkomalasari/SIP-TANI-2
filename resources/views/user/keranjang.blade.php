@@ -11,10 +11,11 @@
 <div class="site-section">
     <div class="container">
     <div class="row mb-5">
+
         <form class="col-md-12" method="post" action="{{ route('user.keranjang.update') }}">
         @csrf
-            <table class="table table-bordered">
-            <thead>
+            <table class="table table-striped table-success">
+            <thead >
                 <tr>
                 <th class="product-thumbnail">Gambar</th>
                 <th class="product-name">Produk</th>
@@ -26,7 +27,7 @@
             </thead>
             <tbody>
                 <tr>
-                    
+
                 <?php $subtotal=0; foreach($keranjangs as $keranjang): ?>
                 <td class="product-thumbnail">
                     <img src="{{ asset('storage/'.$keranjang->image) }}" alt="Image" class="img-fluid" width="150">
@@ -58,23 +59,24 @@
                 <?php endforeach;?>
             </tbody>
             </table>
-        
+
     </div>
 
     <div class="row">
-        <div class="col-md-6">
-        <div class="row mb-5">
-            <div class="col-md-6 mb-3 mb-md-0">
-            <button type="submit" class="btn btn-primary btn-sm btn-block">Update Keranjang</button>
+
+            <div class="col-md-6">
+            <div class="row mb-5">
+                <div class="col-md-6 mb-3 mb-md-0">
+                <button type="submit" class="btn btn-primary btn-sm btn-block">Update Keranjang</button>
+                </div>
+                </form>
             </div>
-            </form>       
-        </div>
-        </div>
-        <div class="col-md-6 pl-5">
+            </div>
+        <div class="col-md-10 pl-5">
         <div class="row justify-content-end">
             <div class="col-md-7">
             <div class="row">
-                <div class="col-md-12 text-right border-bottom mb-5">
+                <div class="col-md-12 text-left border-bottom mb-5">
                 <h3 class="text-black h4 text-uppercase">Total Belanja</h3>
                 </div>
             </div>
@@ -91,7 +93,7 @@
                 @if($cekalamat > 0)
                 <div class="col-md-12">
                 <a href="{{ route('user.checkout') }}" class="btn btn-primary btn-lg py-3 btn-block" >Checkout</a>
-                <small>Jika Merubah Quantity Pada Keranjang Maka Klik Update Keranjang Dulu Sebelum Melakukan Checkout</small>
+                <small>Jika Merubah jumlah Pada Keranjang Maka Klik Update Keranjang Dulu Sebelum Melakukan Checkout</small>
                 </div>
                 @else
                 <div class="col-md-12">

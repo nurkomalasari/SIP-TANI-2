@@ -51,7 +51,7 @@
                         <li>
                           <div class="dropdown">
                             <a class="dropdown-toggle" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            <span class="icon icon-person"></span>
+                            <span> <i class="fas fa-user-circle"></i> {{ Auth::user()->name }} </span>
                             </a>
                             <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
                                 <a class="dropdown-item" href="{{ route('user.alamat') }}">Pengaturan Alamat</a>
@@ -79,7 +79,7 @@
                             ->first();
                           ?>
                             <a href="{{ route('user.keranjang') }}" class="site-cart">
-                            <span class="icon icon-add_shopping_cart"></span>
+                                <i class="fas fa-cart-plus"></i>
                             <span class="count">{{ $total_keranjang->jumlah }}</span>
                             </a>
                         </li>
@@ -94,14 +94,20 @@
                             ->first();
                           ?>
                         <a href="{{ route('user.order') }}" class="site-cart">
-                            <span class="icon icon-shopping_cart"></span>
+                            <i class="fas fa-shopping-bag"></i>
                             <span class="count">{{ $total_order->jumlah }}</span>
                             </a>
                         </li>
                     @else
+
+                    {{-- <button type="button" class="btn btn-success active"> <a href="{{ route('login') }}"></a>Login</button> --}}
+                    {{-- <li class="get-started"><a href="{{ url('/register') }}" class="nav-item nav-link ">Daftar Konsumen</a></li> --}}
+
                     <div class="dropdown">
                             <a class="dropdown-toggle" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            <span class="icon icon-person"></span>
+                             <button type="button" class="btn btn-outline-success">Get Started</button>
+{{--
+                                <span class="icon icon-person"></span> --}}
                             </a>
                             <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
                                 <a class="dropdown-item" href="{{ route('login') }}">Login</a>
@@ -125,9 +131,15 @@
           <ul class="site-menu js-clone-nav d-none d-md-block">
             <li class="{{ Request::path() === '/' ? '' : '' }}"><a href="{{ route('home') }}">Home</a></li>
             <li class="{{ Request::path() === 'produk' ? '' : '' }}"><a href="{{ route('user.produk') }}">Produk</a></li>
-            <li class="{{ Request::path() === 'kontak' ? '' : '' }}"><a href="{{ route('kontak') }}">Kontak</a></li>
+
+            <li class="{{ Request::path() === 'kontak' ? '' : '' }}"><a href="{{ route('kontak') }}">Kategori</a>
+            </li>
+
+
           </ul>
         </div>
+
+
       </nav>
     </header>
 

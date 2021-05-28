@@ -50,14 +50,17 @@
                     <img src="{{ asset('storage/' . $produk->image) }}" alt="Image placeholder" class="img-fluid" width="100%" style="height:200px">
                 </a>
                 <div class="block-4-text p-4">
-                <h3><a href="{{ route('user.produk.detail',['id' =>  $produk->id]) }}">{{ $produk->name }}</a></h3>
-                <p class="mb-0">RP {{ $produk->price }}</p>
-                <a href="{{ route('user.produk.detail',['id' =>  $produk->id]) }}" class="btn btn-primary mt-2">Detail</a>
-                </div>
+                    <h3><a href="{{ route('user.produk.detail',['id' =>  $produk->id]) }}">{{ $produk->name }}</a></h3>
+
+                        <strong>Harga : </strong> Rp. {{ number_format($produk->price)}} <br>
+                        <strong>Stok : </strong> {{$produk->stok}} <br>
+
+                    <a href="{{ route('user.produk.detail',['id' =>  $produk->id]) }}" class="btn btn-primary mt-2"><i class="fas fa-shopping-cart"></i>Belanja</a>
+                    </div>
             </div>
             </div>
             @endforeach
-            
+
 
         </div>
         <div class="row" data-aos="fade-up">
@@ -69,14 +72,34 @@
         </div>
         </div>
 
+
         <div class="col-md-3 order-1 mb-5 mb-md-0">
         <div class="border p-4 rounded mb-4">
-            <h3 class="mb-3 h6 text-uppercase text-black d-block">Kategori Produk</h3>
+
+
             <ul class="list-unstyled mb-0">
-            @foreach($categories as $categori)
-            <li class="mb-1"><a href="{{ route('user.kategori',['id' => $categori->id]) }}" class="d-flex"><span>{{ $categori->name }}</span> <span class="text-black ml-auto">( {{ $categori->jumlah }} )</span></a>
+
+            {{-- <li class="mb-1"><a href="{{ route('user.kategori',['id' => $categori->id]) }}" class="d-flex"><span>{{ $categori->name }}</span> <span class="text-black ml-auto">( {{ $categori->jumlah }} )</span></a> --}}
             </li>
-            @endforeach
+
+            <table class="table table-striped">
+                <thead>
+                    <tr class="bg-success">
+                        <td> <strong> KATEGORI PRODUK</strong></td>
+                    </tr>
+                    @foreach($categories as $categori)
+                        <tr>
+                            <td> <strong><a href="{{ route('user.kategori',['id' => $categori->id]) }}" class="d-flex"><span>{{ $categori->name }}</span> <span class="text-black ml-auto">( {{ $categori->jumlah }} )</span></a></strong></td>
+                        </tr>
+
+                        @endforeach
+
+
+
+
+                </thead>
+            </table>
+
             </ul>
         </div>
 
@@ -119,7 +142,7 @@
         </div> -->
         </div>
     </div>
-    
+
     </div>
 </div>
 @endsection

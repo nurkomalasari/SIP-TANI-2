@@ -20,6 +20,7 @@ class CheckoutController extends Controller
                             ->where('keranjang.user_id','=',$id_user)
                             ->get();
 
+
         //lalu hitung jumlah berat total dari semua produk yang akan di beli
         $berattotal = 0;
         foreach($keranjangs as $k){
@@ -53,7 +54,7 @@ class CheckoutController extends Controller
 
         //buat kode invoice sesua tanggalbulantahun dan jam
         $data = [
-            'invoice' => 'ALV'.Date('Ymdhi'),
+            'invoice' => 'SPT'.Date('Ymdhi'),
             'keranjangs' => $keranjangs,
             // 'ongkir' => $ongkir,
             'alamat' => $alamat_user

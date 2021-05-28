@@ -31,15 +31,17 @@ class OrderController extends Controller
         $dicek = DB::table('order')
                     ->join('status_order','status_order.id','=','order.status_order_id')
                     ->select('order.*','status_order.name')
-                    ->where('order.status_order_id','!=',1)
-                    ->Where('order.status_order_id','!=',5)
+                    ->where('order.status_order_id','!=',5)
+                    ->where('order.status_order_id','!=',4)
+                    // ->Where('order.status_order_id','!=',5)
                     // ->Where('order.status_order_id','!=',6)
                     ->where('order.user_id',$user_id)->get();
         $histori = DB::table('order')
         ->join('status_order','status_order.id','=','order.status_order_id')
         ->select('order.*','status_order.name')
-        ->where('order.status_order_id','!=',4)
-        ->Where('order.status_order_id','!=',5)
+        ->where('order.status_order_id','!=',1)
+        ->Where('order.status_order_id','!=',2)
+        ->Where('order.status_order_id','!=',3)
         // ->Where('order.status_order_id','!=',3)
         // ->Where('order.status_order_id','!=',4)
         ->where('order.user_id',$user_id)->get();
@@ -108,7 +110,11 @@ class OrderController extends Controller
         Config::$isSanitized = env('MIDTRANS_IS_SANITIZED') ?? true;
         Config::$is3ds = env('MIDTRANS_IS_3DS') ?? true;
         $user = User::where('id', \Auth::user()->id)->first();
-        $save = Order::findOrFail($id);
+        $save= Order::find($id);
+        // $save = Order::where('id');
+        $detail_order = Detailorder::where('id', $id)->get();
+
+
 
 
         $transaction_details = [
@@ -141,6 +147,12 @@ class OrderController extends Controller
 
         }
         $save->status_order_id = 2;
+        $detail_order= Detailorder::where('id', $id)->get();
+        foreach ($detail_order as $det) {
+            $produk = Product::where('id',$det->id)->first();
+            $produk->stok = $produk->stok - $det->qty;
+            $produk->update();
+        }
         $save->save();
         return redirect($url_transaction);
 
@@ -266,6 +278,7 @@ class OrderController extends Controller
     public function cetakstruk($id){
         $produk     = Product::all();
         $order = Order::where('id',$id)->first();
+
         $detail = Detailorder::where('id', $order->id)->get();
 
         $pdf = PDF::loadview('user.order.struk', compact('order','detail'));

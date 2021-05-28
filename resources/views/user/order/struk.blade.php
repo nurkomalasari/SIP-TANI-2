@@ -10,8 +10,9 @@
 <body>
 	<div class="col-12 mt-3">
 		<div class="card">
-            <img src="assets/img/logo1.png" width="200px" alt="">
-            <h3>Apotek Rahmayani</h3>
+            {{-- <img src="{{ asset('shopper/images/sip.png')}}" width="200px" alt=""> --}}
+            <center><h3>Toko Anang Tani</h3></center>
+            <small>________________________________________________________________________</small>
 			<h5>Jalan Raya Lohbener Lama No.08</h5>
 			<table>
                 <tr>
@@ -50,6 +51,30 @@
 
 			<h5>-------------------------------------------------------------------------------------------------------------------------------</h5>
             <table>
+                <div >
+                    <div >
+                        <table>
+                        <thead>
+                            <tr>
+                            <th >Gambar</th>
+                            <th >Nama Produk</th>
+                            <th >Jumlah</th>
+                            <th  width="20%">Total</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach($detail as $o)
+                            <tr>
+                                <td><img src="{{ asset('storage/'.$o->image) }}" alt="" srcset="" width="50"></td>
+                                <td>{{ $o->nama_produk }}</td>
+                                <td>{{ $o->qty }}</td>
+                                <td>{{ $o->qty * $o->price }}</td>
+                            </tr>
+                            @endforeach
+                        </tbody>
+                        </table>
+
+                </div>
 				<h4 >Terima Kasih :)</h4>
 			</table>
 

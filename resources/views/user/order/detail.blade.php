@@ -14,10 +14,12 @@
         <div class="col-md-12 text-center">
             <h2 class="display-5">Detail Pesanan Anda</h2>
         </div>
+        @if($order->status_order_id == 4)
         <div class="col text-right">
-            <a href="{{url('cetak-struk')}}/{{$order->id}}"  class="btn btn-primary">Cetak Struk</a>
+            <a href="{{url('cetak-struk')}}/{{$order->id}}"  class="btn btn-primary"><i class="fas fa-print"></i> Struk</a>
 
             </div>
+            @endif
     </div>
     <div class="row">
         <div class="col-md-12">
@@ -25,14 +27,14 @@
                 <div class="card-body">
                 <div class="row">
                 <div class="col-md-8">
-                    <table>
+                    <table  >
                         <tr>
                             <th>No Invoice</th>
                             <td>:</td>
                             <td>{{ $order->invoice }}</td>
                         </tr>
                         <tr>
-                            <th>No Resi</th>
+                            <th>Konfirmasi</th>
                             <td>:</td>
                             <td>{{ $order->no_resi }}</td>
                         </tr>
@@ -57,7 +59,7 @@
                     </table>
                 </div>
                 <div class="col-md-4 text-right">
-                    @if($order->status_order_id == 2)
+                    @if($order->status_order_id == 3)
                     <a href="{{ route('user.order.pesananditerima',['id' => $order->id]) }}" onclik="return confirm('Yakin ingin melanjutkan ?')" class="btn btn-primary">Pesanan Di Terima</a><br>
                     <small>Jika pesanan belum datang harap jangan tekan tombol ini</small>
                     @endif
@@ -65,7 +67,7 @@
                 </div>
                 <div class="row mb-5">
                     <div class="col-md-12">
-                        <table class="table table-bordered">
+                        <table class="table table-striped table-success">
                         <thead>
                             <tr>
                             <th class="product-thumbnail">Gambar</th>

@@ -12,7 +12,7 @@
     <div class="container">
     <div class="row mb-3">
         <div class="col-md-12">
-            <h2 class="text-success">Belum Dibayar</h2>
+            <h2 class="btn btn-warning text-white">Belum Dibayar</h2>
         </div>
     </div>
     <div class="row mb-5">
@@ -20,12 +20,12 @@
            <div class="table-responsive">
            <div class="table-responsive">
            <table class="table table-bordered">
-            <thead class="table-primary">
+            <thead>
                 <tr>
                 <th class="product-thumbnail">Invoice</th>
                 <th class="product-name">Total</th>
                 <th class="product-price">Status</th>
-                <th class="product-quantity">Aksi</th>
+                <th class="product-quantity" width="20%">Aksi</th>
                 </tr>
             </thead>
             <tbody>
@@ -37,11 +37,10 @@
                     <td>
 
                     <a href="{{ route('user.order.pesanandibatalkan',['id' => $o->id]) }}" onclick="return confirm('Yakin ingin membatalkan pesanan')" class="btn btn-danger">Batalkan</a>
-
+                    @if($order->status_order_id == 1)
                     <a href="{{ route('user.order.pembayaran',['id' => $o->id]) }}" class="btn btn-success">Bayar</a>
+                    @endif
                     <a href="{{ route('user.order.detail',['id' => $o->id]) }}" class="btn btn-success">Detail</a>
-
-
 
                     </td>
 
@@ -56,17 +55,16 @@
 
 </div>
 
-
     <div class="container">
     <div class="row mb-3">
         <div class="col-md-12">
-            <h2 class="text-success">Sedang Dalam Proses</h2>
+            <h2 class="btn btn-warning text-white">Sedang Dalam Proses</h2>
         </div>
     </div>
     <div class="row mb-5">
         <div class="col-md-12">
             <table class="table table-bordered">
-            <thead class="table-primary">
+            <thead>
                 <tr>
                 <th class="product-thumbnail">Invoice</th>
                 <th class="product-name">Total</th>
@@ -89,6 +87,11 @@
                     <td>
                     <a href="{{ route('user.order.detail',['id' => $o->id]) }}" class="btn btn-success">Detail</a>
                     </td>
+                    @if ()
+
+
+
+                    @endif
                 </tr>
                 @endforeach
             </tbody>
@@ -99,14 +102,14 @@
     <div class="container">
     <div class="row mb-3">
         <div class="col-md-12">
-            <h2 class=" text-success">Riwayat Pesanan Anda</h2>
+            <h2 class="btn btn-warning text-white">Riwayat Pesanan Anda</h2>
         </div>
     </div>
     <div class="row mb-5">
         <div class="col-md-12">
             <div class="table-responsive">
             <table class="table table-bordered">
-            <thead class="table-primary">
+            <thead>
                 <tr>
                 <th class="product-thumbnail">Invoice</th>
                 <th class="product-name">Total</th>

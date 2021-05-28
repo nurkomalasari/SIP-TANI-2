@@ -91,7 +91,7 @@ class TransaksiController extends Controller
                     ->join('status_order','status_order.id','=','order.status_order_id')
                     ->join('users','users.id','=','order.user_id')
                     ->select('order.*','status_order.name','users.name as nama_pemesan')
-                    ->where('order.status_order_id',3)
+                    ->where('order.status_order_id',4)
                     ->get();
         $data = array(
             'orderbaru' => $order
@@ -107,7 +107,7 @@ class TransaksiController extends Controller
                     ->join('status_order','status_order.id','=','order.status_order_id')
                     ->join('users','users.id','=','order.user_id')
                     ->select('order.*','status_order.name','users.name as nama_pemesan')
-                    ->where('order.status_order_id',4)
+                    ->where('order.status_order_id',5)
                     ->get();
         $data = array(
             'orderbaru' => $order
@@ -153,15 +153,15 @@ class TransaksiController extends Controller
         return redirect()->route('admin.transaksi.perludikirim')->with('status','Berhasil Mengonfirmasi Pembayaran Pesanan');
     }
 
-    // public function inputresi($id,Request $request)
-    // {
-    //     //funtion untuk menginput no resi pesanan
-    //     $order = Order::findOrFail($id);
-    //     $order->no_resi = $request->no_resi;
-    //     $order->status_order_id = 4;
-    //     $order->save();
-    //     return redirect()->route('admin.transaksi.perludikirim')->with('status','Berhasil Menginput No Resi');
-    // }
+    public function inputresi($id,Request $request)
+    {
+        //funtion untuk menginput no resi pesanan
+        $order = Order::findOrFail($id);
+        $order->no_resi = $request->no_resi;
+        $order->status_order_id = 3;
+        $order->save();
+        return redirect()->route('admin.transaksi.perludikirim')->with('status','Berhasil mengkonfirmasi');
+    }
     public function transaksiexport(){
         return Excel::download(new OrderExport, 'Transaksi.xlsx');
     }

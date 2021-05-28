@@ -16,17 +16,17 @@
             </div>
             <div class="row">
               <div class="col-md-4 stretch-card grid-margin">
-                <div class="card bg-gradient-danger card-img-holder text-white">
+                <div class="card bg-success card-img-holder text-white">
                   <div class="card-body">
                     {{-- <img src="{{ asset('adminassets') }}/assets/images/dashboard/circle.svg" class="card-img-absolute" alt="circle-image" /> --}}
                     <h4 class="font-weight-normal mb-3">Pendapatan <i class="mdi mdi-cash-usd mdi-24px float-right"></i>
                     </h4>
-                    <h2 class="mb-5">Rp. {{ number_format($pendapatan->penghasilan,3,',','.') }}</h2>
+                    <h2 class="mb-5">Rp. {{ number_format($pendapatan->penghasilan,2,',','.') }}</h2>
                   </div>
                 </div>
               </div>
               <div class="col-md-4 stretch-card grid-margin">
-                <div class="card bg-gradient-info card-img-holder text-white">
+                <div class="card bg-info card-img-holder text-white">
                   <div class="card-body">
                     {{-- <img src="{{ asset('adminassets') }}/assets/images/dashboard/circle.svg" class="card-img-absolute" alt="circle-image" /> --}}
                     <h4 class="font-weight-normal mb-3">Transaksi <i class="mdi mdi-shopping mdi-24px float-right"></i>
@@ -36,7 +36,7 @@
                 </div>
               </div>
               <div class="col-md-4 stretch-card grid-margin">
-                <div class="card bg-gradient-success card-img-holder text-white">
+                <div class="card bg-primary card-img-holder text-white">
                   <div class="card-body">
                     {{-- <img src="{{ asset('adminassets') }}/assets/images/dashboard/circle.svg" class="card-img-absolute" alt="circle-image" /> --}}
                     <h4 class="font-weight-normal mb-3">Pelanggan <i class="mdi mdi-account-multiple-outline mdi-24px float-right"></i>

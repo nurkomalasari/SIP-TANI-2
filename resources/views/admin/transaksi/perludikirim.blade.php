@@ -48,7 +48,7 @@
                                 <td align="center">
                                 <div class="btn-group" role="group" aria-label="Basic example">
                                   <a href="{{ route('admin.transaksi.detail',['id'=>$order->id]) }}"  class="btn btn-warning btn-sm">
-                                    Input No Resi
+                                    Konfirmasi
                                   </a>
                                 </div>
                                 </td>
@@ -62,5 +62,5 @@
               </div>
             </div>
           </div>
-          
+
 @endsection

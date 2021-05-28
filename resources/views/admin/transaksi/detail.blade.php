@@ -101,16 +101,15 @@
                         </tr>
                         @endif
                         @endif
-                        @if($order->status_order_id == 3)
+                        @if($order->status_order_id == 2)
                         <tr>
-                            <td>No Resi</td>
-                            <td>:</td>
+
                             <td  class="p-2">
                             <form action="{{ route('admin.transaksi.inputresi',['id' => $order->id]) }}" method="POST">
                                 @csrf
                             <div class="form-group">
                             <div class="input-group">
-                                <input type="text" class="form-control form-control-sm" placeholder="Input Resi" aria-label="Recipient's username" aria-describedby="basic-addon2" name="no_resi" required>
+                                <input type="text" class="form-control form-control-sm" placeholder=" " aria-label="Recipient's username" aria-describedby="basic-addon2" name="no_resi" required>
                                 <div class="input-group-append">
                                 <button type="submit" class="btn btn-sm btn-primary" type="button">Simpan</button>
                                 </div>

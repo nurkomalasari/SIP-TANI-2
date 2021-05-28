@@ -37,7 +37,7 @@ class ProdukController extends Controller
     {
         //mencari produk yang dicari user
         $cari = $request->cari;
-        $prod  = Product::where('','like',"%" . $cari. "%")->paginate(9);
+        $prod  = Product::where('name','like',"%" . $cari. "%")->paginate(9);
         $total = Product::where('name','like','%' . $request->cari. '%')->count();
         $data  = array(
             'produks' => $prod,
