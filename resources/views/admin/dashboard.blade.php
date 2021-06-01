@@ -1,83 +1,114 @@
 @extends('admin.layout.app')
 @section('content')
-<div class="content-wrapper">
-            <div class="page-header">
-              <h3 class="page-title">
-                <span class="page-title-icon bg-gradient-primary text-white mr-2">
-                  <i class="mdi mdi-home"></i>
-                </span> Dashboard </h3>
-              <nav aria-label="breadcrumb">
-                <ul class="breadcrumb">
-                  <li class="breadcrumb-item active" aria-current="page">
-                    <span></span>Overview <i class="mdi mdi-alert-circle-outline icon-sm text-primary align-middle"></i>
-                  </li>
-                </ul>
-              </nav>
+<div class="content">
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-lg-3 col-md-6 col-sm-6">
+          <div class="card card-stats">
+            <div class="card-header card-header-success card-header-icon">
+              <div class="card-icon">
+                <i class="material-icons">payments</i>
+              </div>
+              <h4 class="card-category">Pendapatan</h4>
+              <h6 class="card-title">Rp. {{ number_format($pendapatan->penghasilan,2,',','.') }}
+
+              </h6>
             </div>
-            <div class="row">
-              <div class="col-md-4 stretch-card grid-margin">
-                <div class="card bg-success card-img-holder text-white">
-                  <div class="card-body">
-                    {{-- <img src="{{ asset('adminassets') }}/assets/images/dashboard/circle.svg" class="card-img-absolute" alt="circle-image" /> --}}
-                    <h4 class="font-weight-normal mb-3">Pendapatan <i class="mdi mdi-cash-usd mdi-24px float-right"></i>
-                    </h4>
-                    <h2 class="mb-5">Rp. {{ number_format($pendapatan->penghasilan,2,',','.') }}</h2>
-                  </div>
-                </div>
-              </div>
-              <div class="col-md-4 stretch-card grid-margin">
-                <div class="card bg-info card-img-holder text-white">
-                  <div class="card-body">
-                    {{-- <img src="{{ asset('adminassets') }}/assets/images/dashboard/circle.svg" class="card-img-absolute" alt="circle-image" /> --}}
-                    <h4 class="font-weight-normal mb-3">Transaksi <i class="mdi mdi-shopping mdi-24px float-right"></i>
-                    </h4>
-                    <h2 class="mb-5">{{ $transaksi->total_order }}</h2>
-                  </div>
-                </div>
-              </div>
-              <div class="col-md-4 stretch-card grid-margin">
-                <div class="card bg-primary card-img-holder text-white">
-                  <div class="card-body">
-                    {{-- <img src="{{ asset('adminassets') }}/assets/images/dashboard/circle.svg" class="card-img-absolute" alt="circle-image" /> --}}
-                    <h4 class="font-weight-normal mb-3">Pelanggan <i class="mdi mdi-account-multiple-outline mdi-24px float-right"></i>
-                    </h4>
-                    <h2 class="mb-5">{{ $pelanggan->total_user }}</h2>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="row">
-              <div class="col-12 grid-margin">
-                <div class="card">
-                  <div class="card-body">
-                    <h4 class="card-title">10 Transaksi Terbaru</h4>
-                    <div class="table-responsive">
-                      <table class="table">
-                        <thead>
-                          <tr>
-                            <th> Invoice </th>
-                            <th> Pemesan </th>
-                            <th> Subtotal </th>
-                            <th> Status Pesanan </th>
-                            <th> Aksi </th>
-                          </tr>
-                        </thead>
-                        <tbody>
-                          @foreach($order_baru as $order)
-                            <tr>
-                              <td>{{ $order->invoice }}</td>
-                              <td>{{ $order->nama_pemesan }}</td>
-                              <td>{{ $order->subtotal + $order->biaya_cod }}</td>
-                              <td>{{ $order->name }}</td>
-                              <td> <a href="{{ route('admin.transaksi.detail',['id'=>$order->id]) }}" class="btn btn-success btn-sm">Detail</a></td>
-                            </tr>
-                          @endforeach
-                        </tbody>
-                      </table>
-                    </div>
-                  </div>
-                </div>
+            <div class="card-footer">
+              <div class="stats">
+                {{-- <i class="material-icons text-danger">warning</i>
+                <a href="javascript:;">Get More Space...</a> --}}
               </div>
             </div>
           </div>
+        </div>
+        <div class="col-lg-3 col-md-6 col-sm-6">
+          <div class="card card-stats">
+            <div class="card-header card-header-success card-header-icon">
+              <div class="card-icon">
+                <i class="material-icons">store</i>
+              </div>
+              <h4 class="card-category">Transaksi</h4>
+              <h3 class="card-title">{{ $transaksi->total_order }}</h3>
+            </div>
+            <div class="card-footer">
+              <div class="stats">
+                {{-- <i class="material-icons">date_range</i> Last 24 Hours --}}
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-3 col-md-6 col-sm-6">
+          <div class="card card-stats">
+            <div class="card-header card-header-success card-header-icon">
+              <div class="card-icon">
+                <i class="material-icons">people</i>
+              </div>
+              <h4 class="card-category">Pelanggan</h4>
+              <h3 class="card-title">{{ $pelanggan->count()}}</h3>
+            </div>
+            <div class="card-footer">
+              <div class="stats">
+                {{-- <i class="material-icons">local_offer</i> Tracked from Github --}}
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-3 col-md-6 col-sm-6">
+          <div class="card card-stats">
+            <div class="card-header card-header-success card-header-icon">
+              <div class="card-icon">
+                <i class="material-icons">category</i>
+              </div>
+              <h4 class="card-category">Produk</h4>
+              <h3 class="card-title">{{ $produk->total_produk }}</h3>
+            </div>
+            <div class="card-footer">
+              <div class="stats">
+
+
+
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="row">
+
+        <div class="col-lg-12 col-md-12">
+          <div class="card">
+            <div class="card-header card-header-success">
+              <h4 class="card-title">Transaksi Terbaru</h4>
+              <p class="card-category"></p>
+            </div>
+            <div class="table-responsive">
+                <table class="table">
+                  <thead>
+                    <tr>
+                      <th> Invoice </th>
+                      <th> Pemesan </th>
+                      <th> Subtotal </th>
+                      <th> Status Pesanan </th>
+                      <th> Aksi </th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    @foreach($order_baru as $order)
+                      <tr>
+                        <td>{{ $order->invoice }}</td>
+                        <td>{{ $order->nama_pemesan }}</td>
+                        <td>{{ $order->subtotal + $order->biaya_cod }}</td>
+                        <td>{{ $order->name }}</td>
+                        <td> <a href="{{ route('admin.transaksi.detail',['id'=>$order->id]) }}" class="btn btn-success btn-sm">Detail</a></td>
+                      </tr>
+                    @endforeach
+                  </tbody>
+                </table>
+              </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 @endsection

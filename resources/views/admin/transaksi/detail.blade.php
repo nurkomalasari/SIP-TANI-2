@@ -1,19 +1,7 @@
 @extends('admin.layout.app')
 @section('content')
 <div class="content-wrapper">
-            <div class="page-header">
-              <h3 class="page-title">
-                <span class="page-title-icon bg-gradient-primary text-white mr-2">
-                  <i class="mdi mdi-home"></i>
-                </span> Pesanan </h3>
-              <nav aria-label="breadcrumb">
-                <ul class="breadcrumb">
-                  <li class="breadcrumb-item active" aria-current="page">
-                    <span></span>Overview <i class="mdi mdi-alert-circle-outline icon-sm text-primary align-middle"></i>
-                  </li>
-                </ul>
-              </nav>
-            </div>
+
             <div class="row">
               <div class="col-12 grid-margin">
                 <div class="card">
@@ -23,9 +11,10 @@
                       <h4 class="card-title">Detail Pesanan {{ $order->nama_pelanggan }}</h4>
                       </div>
                       <div class="col text-right">
-                      <a href="javascript:void(0)" onclick="window.history.back()" class="btn btn-primary">Kembali</a>
-
-                      </div>
+                        <a href="javascript:void(0)" onclick="window.history.back()" class="btn btn-success"> <span class="material-icons">
+                          arrow_back
+                          </span>Kembali</a>
+                        </div>
                     </div>
                     <hr>
                    <div class="row">
@@ -56,18 +45,18 @@
                         <tr>
                             <td>Total</td>
                             <td>:</td>
-                            <td  class="p-2">Rp. {{ number_format($order->subtotal,2,',','.') }} ( Sudah Termasuk Ongkir )</td>
+                            <td  class="p-2">Rp. {{ number_format($order->subtotal,2,',','.') }}</td>
                         </tr>
-                        <tr>
+                        {{-- <tr>
                             <td>Biaya Ongkir</td>
                             <td>:</td>
                             <td  class="p-2">Rp. {{ number_format($order->ongkir,2,',','.') }}</td>
-                        </tr>
-                        <tr>
-                            <td>Kurir</td>
+                        </tr> --}}
+                        {{-- <tr>
+                            <td>Pengambilan</td>
                             <td>:</td>
                             <td  class="p-2">JNE Service OKE</td>
-                        </tr>
+                        </tr> --}}
                         @if($order->no_resi != null)
                         <tr>
                             <td>No Resi</td>
@@ -121,10 +110,10 @@
                         @endif
                     </table>
                     </div>
-                    <div class="col-md-5">
+                    <div class="col-md-12">
                     <div class="table-responsive">
                       <table class="table table-bordered table-hovered" >
-                        <thead class="bg-primary text-white">
+                        <thead class="bg-success text-white">
                           <tr>
                             <th width="5%">No</th>
                             <th>Nama Produk</th>

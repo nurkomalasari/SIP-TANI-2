@@ -148,7 +148,10 @@ class TransaksiController extends Controller
                     ->where('id',$kurang->product_id)
                     ->update([
                         'stok' => $ubahstok
+
                     ]);
+
+
         }
         return redirect()->route('admin.transaksi.perludikirim')->with('status','Berhasil Mengonfirmasi Pembayaran Pesanan');
     }
@@ -159,11 +162,31 @@ class TransaksiController extends Controller
         $order = Order::findOrFail($id);
         $order->no_resi = $request->no_resi;
         $order->status_order_id = 3;
+        $kurangistok = DB::table('detail_order')->where('order_id',$id)->get();
+        foreach($kurangistok as $kurang){
+            $ambilproduk = DB::table('products')->where('id',$kurang->product_id)->first();
+            $ubahstok = $ambilproduk->stok - $kurang->qty;
+
+            $update = DB::table('products')
+                    ->where('id',$kurang->product_id)
+                    ->update([
+                        'stok' => $ubahstok
+
+                    ]);
+        }
         $order->save();
+
         return redirect()->route('admin.transaksi.perludikirim')->with('status','Berhasil mengkonfirmasi');
     }
     public function transaksiexport(){
         return Excel::download(new OrderExport, 'Transaksi.xlsx');
+    }
+    public function delete($id)
+    {
+        //mengahapus produk
+
+        Order::destroy($id);
+        return redirect()->route('admin.transaksi.dibatalkan')->with('status','Berhasil Mengahapus Produk yang dibatalkan');
     }
 
 

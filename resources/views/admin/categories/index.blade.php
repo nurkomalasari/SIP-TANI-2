@@ -1,19 +1,7 @@
 @extends('admin.layout.app')
 @section('content')
 <div class="content-wrapper">
-            <div class="page-header">
-              <h3 class="page-title">
-                <span class="page-title-icon bg-gradient-primary text-white mr-2">
-                  <i class="mdi mdi-home"></i>
-                </span> Kategori </h3>
-              <nav aria-label="breadcrumb">
-                <ul class="breadcrumb">
-                  <li class="breadcrumb-item active" aria-current="page">
-                    <span></span>Overview <i class="mdi mdi-alert-circle-outline icon-sm text-primary align-middle"></i>
-                  </li>
-                </ul>
-              </nav>
-            </div>
+
             <div class="row">
               <div class="col-12 grid-margin">
                 <div class="card">
@@ -23,13 +11,15 @@
                       <h4 class="card-title">Data Kategori</h4>
                       </div>
                       <div class="col text-right">
-                      <a href="{{ route('admin.categories.tambah') }}" class="btn btn-primary">Tambah</a>
+                      <a href="{{ route('admin.categories.tambah') }}" class="btn btn-success"><i class="material-icons">
+                        add
+                      </i>Tambah</a>
                       </div>
                     </div>
                     <div class="table-responsive">
-                      <table class="table table-bordered table-hovered" id="table">
+                      <table class="table table-bordered" id="table">
                         <thead>
-                          <tr>
+                          <tr class="table-success">
                             <th width="5%">No</th>
                             <th>Nama Kategori</th>
                             <th width="15%">Aksi</th>
@@ -43,10 +33,12 @@
                                 <td align="center">
                                 <div class="btn-group" role="group" aria-label="Basic example">
                                   <a href="{{ route('admin.categories.edit',['id'=>$categorie->id]) }}" class="btn btn-warning btn-sm">
-                                    <i class="mdi mdi-tooltip-edit"></i>
+                                    <i class="material-icons"> edit </i>
+
                                   </a>
                                   <a href="{{ route('admin.categories.delete',['id'=>$categorie->id]) }}" onclick="return confirm('Yakin Hapus data')" class="btn btn-danger btn-sm">
-                                    <i class="mdi mdi-delete-forever"></i>
+                                    <i class="material-icons"> delete </i>
+
                                   </a>
                                 </div>
                                 </td>
@@ -60,5 +52,5 @@
               </div>
             </div>
           </div>
-          
+
 @endsection

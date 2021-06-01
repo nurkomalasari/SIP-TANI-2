@@ -22,4 +22,8 @@ class WelcomeController extends Controller
     {
         return view('user.kontak');
     }
+    public function home()
+    {
+        return view('admin.layout.app1');
+    }
 }
