@@ -81,21 +81,7 @@ class OrderController extends Controller
         return view('user.terimakasih');
     }
 
-    // public function kirimbukti($id,Request $request)
-    // {
-    //     //mengupload bukti pembayaran
-    //     $order = Order::findOrFail($id);
-    //     if($request->file('bukti_pembayaran')){
-    //         $file = $request->file('bukti_pembayaran')->store('buktibayar','public');
 
-    //         $order->bukti_pembayaran = $file;
-    //         $order->status_order_id  = 2;
-
-    //         $order->save();
-
-    //     }
-    //     return redirect()->route('user.order');
-    // }
 
     public function pembayaran($id, Request $request)
     {

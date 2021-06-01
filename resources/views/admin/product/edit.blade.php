@@ -1,19 +1,7 @@
 @extends('admin.layout.app')
 @section('content')
 <div class="content-wrapper">
-            <div class="page-header">
-              <h3 class="page-title">
-                <span class="page-title-icon bg-gradient-primary text-white mr-2">
-                  <i class="mdi mdi-home"></i>
-                </span> Edit Produk </h3>
-              <nav aria-label="breadcrumb">
-                <ul class="breadcrumb">
-                  <li class="breadcrumb-item active" aria-current="page">
-                    <span></span>Overview <i class="mdi mdi-alert-circle-outline icon-sm text-primary align-middle"></i>
-                  </li>
-                </ul>
-              </nav>
-            </div>
+
             <div class="row">
               <div class="col-12 grid-margin">
                 <div class="card">
@@ -23,8 +11,10 @@
                       <h4 class="card-title">Edit Produk</h4>
                       </div>
                       <div class="col text-right">
-                      <a href="javascript:void(0)" onclick="window.history.back()" class="btn btn-primary">Kembali</a>
-                      </div>
+                        <a href="javascript:void(0)" onclick="window.history.back()" class="btn btn-success"> <span class="material-icons">
+                          arrow_back
+                          </span>Kembali</a>
+                        </div>
                     </div>
                     <div class="row">
                         <div class="col-md-12">
@@ -58,10 +48,15 @@
                                 <label for="exampleInputUsername1">Stok</label>
                                 <input required type="number" class="form-control" name="stok" value="{{ $product->stok}}">
                                 </div>
-                                <div class="form-group">
-                                    <label>File upload</label>
-                                    <input type="file" name="image" class="form-control">
-                                    <small>kosongkan jika tidak mengubah gambar</small>
+                                <div class="fileinput fileinput-new text-left" data-provides="fileinput">
+                                    <div>
+                                        <span class="btn btn-raised btn-round btn-default btn-file">
+                                            <span class="fileinput-new">Pilih Image Product</span>
+                                            <span class="fileinput-exists">Change</span>
+                                            <input type="file" name="image" />
+                                        </span>
+                                        <a href="#pablo" class="btn btn-danger btn-round fileinput-exists" data-dismiss="fileinput"><i class="fa fa-times"></i> Remove</a>
+                                    </div>
                                 </div>
                                 <div class="form-group">
                                 <label for="">Deskripsi</label>

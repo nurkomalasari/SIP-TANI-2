@@ -136,7 +136,7 @@ class TransaksiController extends Controller
     {
         //function ini untuk mengkonfirmasi bahwa pelanngan sudah melakukan pembayaran
         $order = Order::findOrFail($id);
-        $order->status_order_id = 2;
+        $order->status_order_id = 3;
         $order->save();
 
         $kurangistok = DB::table('detail_order')->where('order_id',$id)->get();
@@ -148,7 +148,10 @@ class TransaksiController extends Controller
                     ->where('id',$kurang->product_id)
                     ->update([
                         'stok' => $ubahstok
+
                     ]);
+
+
         }
         return redirect()->route('admin.transaksi.perludikirim')->with('status','Berhasil Mengonfirmasi Pembayaran Pesanan');
     }
@@ -164,6 +167,13 @@ class TransaksiController extends Controller
     }
     public function transaksiexport(){
         return Excel::download(new OrderExport, 'Transaksi.xlsx');
+    }
+    public function delete($id)
+    {
+        //mengahapus produk
+
+        Order::destroy($id);
+        return redirect()->route('admin.transaksi.dibatalkan')->with('status','Berhasil Mengahapus Produk yang dibatalkan');
     }
 
 

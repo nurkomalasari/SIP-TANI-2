@@ -57,6 +57,7 @@ Route::group(['middleware' => ['auth','checkRole:admin']],function(){
     Route::get('/admin/transaksi/selesai','admin\TransaksiController@selesai')->name('admin.transaksi.selesai');
     Route::get('/admin/transaksi/dibatalkan','admin\TransaksiController@dibatalkan')->name('admin.transaksi.dibatalkan');
     Route::get('admin/export-transaksi','admin\TransaksiController@transaksiexport')->name('transaksi-export');
+    Route::get('admin/transaksi/dibatalkandelete{id}','admin\TransaksiController@delete')->name('admin.productbatal.delete');
 
     Route::get('/admin/rekening','admin\RekeningController@index')->name('admin.rekening');
     Route::get('/admin/rekening/edit/{id}','admin\RekeningController@edit')->name('admin.rekening.edit');
@@ -93,11 +94,12 @@ Route::group(['middleware' => ['auth','checkRole:customer']],function(){
 
 Route::get('/ongkir', 'OngkirController@index');
 Route::get('/ongkir/province/{id}/cities', 'OngkirController@getCities');
+
 // Route::get('/submit', 'OngkirController@submit')->name('home');
 
 // Auth::routes();
 
-// Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/home1', 'user\WelcomeController@home');
 
 // Auth::routes();
 

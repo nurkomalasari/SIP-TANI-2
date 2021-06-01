@@ -1,19 +1,7 @@
 @extends('admin.layout.app')
 @section('content')
 <div class="content-wrapper">
-            <div class="page-header">
-              <h3 class="page-title">
-                <span class="page-title-icon bg-gradient-primary text-white mr-2">
-                  <i class="mdi mdi-home"></i>
-                </span> Pesanan </h3>
-              <nav aria-label="breadcrumb">
-                <ul class="breadcrumb">
-                  <li class="breadcrumb-item active" aria-current="page">
-                    <span></span>Overview <i class="mdi mdi-alert-circle-outline icon-sm text-primary align-middle"></i>
-                  </li>
-                </ul>
-              </nav>
-            </div>
+
             <div class="row">
               <div class="col-12 grid-margin">
                 <div class="card">
@@ -24,9 +12,9 @@
                       </div>
                     </div>
                     <div class="table-responsive">
-                      <table class="table table-bordered table-hovered" id="table">
-                        <thead>
-                          <tr>
+                        <table class="table table-bordered " id="table">
+                            <thead>
+                              <tr class="table-success">
                             <th width="5%">No</th>
                             <th>No Invoice</th>
                             <th>Pemesan</th>
@@ -62,5 +50,5 @@
               </div>
             </div>
           </div>
-          
+
 @endsection
