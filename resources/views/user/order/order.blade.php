@@ -3,10 +3,10 @@
 <div class="bg-light py-3">
     <div class="container">
     <div class="row">
-        <div class="col-md-12 mb-0"><a href="index.html">Home</a> <span class="mx-2 mb-0">/</span> <strong class="text-black">Cart</strong></div>
+        <div class="col-md-12 mb-0"><a href="index.html">Home</a> <span class="mx-2 mb-0">/</span> <strong class="text-black">Riwayat Transaksi</strong></div>
     </div>
     </div>
-</div>
+
 
 <div class="site-section">
     <div class="container">
@@ -20,11 +20,11 @@
            <div class="table-responsive">
            <div class="table-responsive">
            <table class="table table-bordered">
-            <thead class="table-primary">
+            <thead class="table-success">
                 <tr>
-                <th class="product-thumbnail">Invoice</th>
+                <th class="product-thumbnail">ID Transaksi</th>
                 <th class="product-name">Total</th>
-                <th class="product-price">Status</th>
+                <th class="product-price">Status Pesanan</th>
                 <th class="product-quantity">Aksi</th>
                 </tr>
             </thead>
@@ -39,7 +39,7 @@
                     <a href="{{ route('user.order.pesanandibatalkan',['id' => $o->id]) }}" onclick="return confirm('Yakin ingin membatalkan pesanan')" class="btn btn-danger">Batalkan</a>
 
                     <a href="{{ route('user.order.pembayaran',['id' => $o->id]) }}" class="btn btn-success">Bayar</a>
-                    <a href="{{ route('user.order.detail',['id' => $o->id]) }}" class="btn btn-success">Detail</a>
+                    <a href="{{ route('user.order.detail',['id' => $o->id]) }}" class="btn btn-success">Detail Pesanan</a>
 
 
 
@@ -66,11 +66,11 @@
     <div class="row mb-5">
         <div class="col-md-12">
             <table class="table table-bordered">
-            <thead class="table-primary">
+            <thead class="table-success">
                 <tr>
-                <th class="product-thumbnail">Invoice</th>
+                <th class="product-thumbnail">ID Transaksi</th>
                 <th class="product-name">Total</th>
-                <th class="product-price">Status</th>
+                <th class="product-price">Status Pesanan</th>
                 <th class="product-quantity" width="20%">Aksi</th>
                 </tr>
             </thead>
@@ -87,7 +87,7 @@
                         @endif
                     </td>
                     <td>
-                    <a href="{{ route('user.order.detail',['id' => $o->id]) }}" class="btn btn-success">Detail</a>
+                    <a href="{{ route('user.order.detail',['id' => $o->id]) }}" class="btn btn-success">Detail Pesanan</a>
                     </td>
                 </tr>
                 @endforeach
@@ -106,11 +106,11 @@
         <div class="col-md-12">
             <div class="table-responsive">
             <table class="table table-bordered">
-            <thead class="table-primary">
+            <thead class="table-success">
                 <tr>
-                <th class="product-thumbnail">Invoice</th>
+                <th class="product-thumbnail">ID Transaksi</th>
                 <th class="product-name">Total</th>
-                <th class="product-price">Status</th>
+                <th class="product-price">Status Pesanan</th>
                 <th class="product-quantity" width="20%">Aksi</th>
                 </tr>
             </thead>
@@ -121,7 +121,7 @@
                     <td>{{ $o->subtotal + $o->biaya_cod }}</td>
                     <td>{{ $o->name }}</td>
                     <td>
-                    <a href="{{ route('user.order.detail',['id' => $o->id]) }}" class="btn btn-success">Detail</a>
+                    <a href="{{ route('user.order.detail',['id' => $o->id]) }}" class="btn btn-success">Detail Pesanan</a>
                     </td>
                 </tr>
                 @endforeach
@@ -130,7 +130,7 @@
             </div>
         </div>
     </div>
-
+</div>
     </div>
 </div>
 @endsection

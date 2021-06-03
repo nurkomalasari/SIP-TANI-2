@@ -1,9 +1,14 @@
 @extends('user.app')
 @section('content')
+
+
+
+
+
 <div class="bg-light py-3">
     <div class="container">
     <div class="row">
-        <div class="col-md-12 mb-0"><a href="index.html">Home</a> <span class="mx-2 mb-0">/</span> <strong class="text-black">Shop</strong></div>
+        <div class="col-md-12 mb-0"><a href="index.html">Home</a> <span class="mx-2 mb-0">/</span> <strong class="text-black">Produk</strong></div>
     </div>
     </div>
 </div>
@@ -42,29 +47,44 @@
             </div>
             </div>
         </div> -->
-        <div class="row mb-5">
+        <div class="row mb-3">
             @foreach($produks as $produk)
-            <div class="col-sm-6 col-lg-4 mb-4" data-aos="fade-up">
-            <div class="block-4 text-center border">
-                <a href="{{ route('user.produk.detail',['id' =>  $produk->id]) }}">
-                    <img src="{{ asset('storage/' . $produk->image) }}" alt="Image placeholder" class="img-fluid" width="100%" style="height:200px">
-                </a>
-                <div class="block-4-text p-4">
-                    <h3><a href="{{ route('user.produk.detail',['id' =>  $produk->id]) }}">{{ $produk->name }}</a></h3>
 
-                        <strong>Harga : </strong> Rp. {{ number_format($produk->price)}} <br>
-                        <strong>Stok : </strong> {{$produk->stok}} <br>
-
-                    <a href="{{ route('user.produk.detail',['id' =>  $produk->id]) }}" class="btn btn-primary mt-2"><i class="fas fa-shopping-cart"></i>Belanja</a>
+            <div class="col-lg-3">
+                <div class="product-item">
+                    <div class="product-title">
+                        <a href="{{ route('user.produk.detail',['id' =>  $produk->id]) }}">{{ $produk->name }}</a>
+                        <div class="ratting">
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                        </div>
                     </div>
+                    <div class="product-image">
+                        <a href="product-detail.html">
+                            <img src="{{ asset('storage/'.$produk->image) }}" alt="Product Image" alt="Image placeholder" class="img-fluid" width="100%" style="height:200px">
+                        </a>
+                        <div class="product-action">
+                            <h3><span>Stok : </span> {{$produk->stok}} </h3>
+                        </div>
+                    </div>
+                    <div class="product-price">
+                        <h5><span>Rp. </span>{{ number_format($produk->price)}}</h5>
+
+                        <a class="btn" href="{{ route('user.produk.detail',['id' =>  $produk->id]) }}"><i class="fa fa-shopping-cart text-white"></i>Buy Now</a>
+                    </div>
+                    <br>
+                </div>
             </div>
-            </div>
+
             @endforeach
 
 
         </div>
         <div class="row" data-aos="fade-up">
-            <div class="col-md-12 text-right">
+            <div class="pagination justify-content-center">
             <div class="site-block-27">
             {{ $produks->links() }}
             </div>

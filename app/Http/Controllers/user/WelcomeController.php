@@ -12,8 +12,15 @@ class WelcomeController extends Controller
     {
         //menampilkan data produk dihalamam utama user dengan limit 10 data
         //untuk di carousel
+        $kat = DB::table('categories')
+                ->join('products','products.categories_id','=','categories.id')
+                ->select(DB::raw('count(products.categories_id) as jumlah, categories.*'))
+                ->groupBy('categories.id')
+                ->get();
         $data = array(
             'produks' => DB::table('products')->limit(10)->get(),
+            'produks' => Product::paginate(9),
+            'categories' => $kat
         );
         return view('user.welcome',$data);
     }
@@ -24,6 +31,17 @@ class WelcomeController extends Controller
     }
     public function home()
     {
-        return view('admin.layout.app1');
+        $kat = DB::table('categories')
+                ->join('products','products.categories_id','=','categories.id')
+                ->select(DB::raw('count(products.categories_id) as jumlah, categories.*'))
+                ->groupBy('categories.id')
+                ->get();
+        $data = array(
+            'produks' => DB::table('products')->limit(10)->get(),
+            'produks' => Product::paginate(9),
+            'categories' => $kat
+        );
+        return view('user.app1',$data);
+
     }
 }

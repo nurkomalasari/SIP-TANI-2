@@ -4,75 +4,52 @@
 <div class="bg-light py-3">
     <div class="container">
     <div class="row">
-        <div class="col-md-12 mb-0"><a href="index.html">Home</a> <span class="mx-2 mb-0">/</span> <strong class="text-black">Contact</strong></div>
+        <div class="col-md-12 mb-0"><a href="index.html">Home</a> <span class="mx-2 mb-0">/</span> <strong class="text-black">Profil</strong></div>
     </div>
     </div>
-</div>  
+</div>
 
 <div class="site-section">
     <div class="container">
     <div class="row">
-        <div class="col-md-12">
-        <h2 class="h3 mb-3 text-black">Get In Touch</h2>
-        </div>
-        <div class="col-md-7">
+        <div class="col-md-12 mt-3">
+            <div class="card">
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-md-4">
 
-        <form action="#" method="post">
-            
-            <div class="p-3 p-lg-5 border">
-            <div class="form-group row">
-                <div class="col-md-6">
-                <label for="c_fname" class="text-black">First Name <span class="text-danger">*</span></label>
-                <input type="text" class="form-control" id="c_fname" name="c_fname">
-                </div>
-                <div class="col-md-6">
-                <label for="c_lname" class="text-black">Last Name <span class="text-danger">*</span></label>
-                <input type="text" class="form-control" id="c_lname" name="c_lname">
-                </div>
-            </div>
-            <div class="form-group row">
-                <div class="col-md-12">
-                <label for="c_email" class="text-black">Email <span class="text-danger">*</span></label>
-                <input type="email" class="form-control" id="c_email" name="c_email" placeholder="">
-                </div>
-            </div>
-            <div class="form-group row">
-                <div class="col-md-12">
-                <label for="c_subject" class="text-black">Subject </label>
-                <input type="text" class="form-control" id="c_subject" name="c_subject">
-                </div>
-            </div>
+                            <img src="{{ asset('estore') }}/img/jagung.png" style="width: 350px" alt="Logo">
 
-            <div class="form-group row">
-                <div class="col-md-12">
-                <label for="c_message" class="text-black">Message </label>
-                <textarea name="c_message" id="c_message" cols="30" rows="7" class="form-control"></textarea>
-                </div>
-            </div>
-            <div class="form-group row">
-                <div class="col-lg-12">
-                <input type="submit" class="btn btn-primary btn-lg btn-block" value="Send Message">
-                </div>
-            </div>
-            </div>
-        </form>
-        </div>
-        <div class="col-md-5 ml-auto">
-        <div class="p-4 border mb-3">
-            <span class="d-block text-primary h6 text-uppercase">New York</span>
-            <p class="mb-0">203 Fake St. Mountain View, San Francisco, California, USA</p>
-        </div>
-        <div class="p-4 border mb-3">
-            <span class="d-block text-primary h6 text-uppercase">London</span>
-            <p class="mb-0">203 Fake St. Mountain View, San Francisco, California, USA</p>
-        </div>
-        <div class="p-4 border mb-3">
-            <span class="d-block text-primary h6 text-uppercase">Canada</span>
-            <p class="mb-0">203 Fake St. Mountain View, San Francisco, California, USA</p>
-        </div>
 
+                        </div>
+                        <div class="col-md-8">
+                            <div class="container" data-aos="fade-up">
+
+                                <header class="section-header">
+
+                                    <h3>Selamat Datang di Anang Tani, Toko Pertanian Online</h3>
+
+                                </header>
+
+                                <div class="row gy-4">
+
+
+                                      <div class="team-inner">
+                                        <Strong style="text-align: center"></Strong>
+                                        <p>Anang Tani merupakan toko online yang menyediakan produk-produk yang dibutuhkan untuk pertanian, perikanan, perkebunan, dan peternakan. Kami menjual berbagai macam obat-obatan dan alat pertanian, seperti Bibit / Benih, Nutrisi Tanaman, Pakan Ternak, Pestisida (Fungisida, Insektisida, Herbisida, Akarisida, dll), aneka pupuk (pupuk daun, pupuk akar, pupuk ZA, pupuk NPK Yaramila, NPK Mutiara, dll), dan juga alat-alat pertanian dengan kualitas terjamin dan harga terjangkau. <br>
+                                            Bukan hanya menjual obat dan alat pertanian terlengkap, Saat ini kami juga telah bekerjasama dengan pabrik dan produsen produk pertanian seperti PT. Yara Indonesia, PT. Meroke Tetap Jaya, PT Petrokimia Gresik, Syngenta, PT. Bisi International Tbk, PT Multi Sarana Indotani, Dupont, Bayer, Nufarm, PT BASF Indonesia,FMC, dll. Sehingga tidak hanya produk kami yang lengkap tapi kami bisa memberikan harga murah <br>
+                                            </p>
+                                      </div>
+                                </div>
+
+                              </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
-    </div>
+
 </div>
 @endsection

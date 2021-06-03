@@ -19,7 +19,7 @@ class ProdukController extends Controller
                 ->groupBy('categories.id')
                 ->get();
         $data = array(
-            'produks' => Product::paginate(9),
+            'produks' => Product::paginate(8),
             'categories' => $kat
         );
         return view('user.produk',$data);
@@ -28,6 +28,7 @@ class ProdukController extends Controller
     {
         //mengambil detail produk
         $data = array(
+            'produks' => DB::table('products')->limit(10)->get(),
             'produk' => Product::findOrFail($id)
         );
         return view('user.produkdetail',$data);

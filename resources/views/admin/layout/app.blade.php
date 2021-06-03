@@ -83,9 +83,9 @@ The above copyright notice and this permission notice shall be included in all c
             </a>
             <div class="collapse" id="ui-basic">
               <ul class="nav flex-column sub-menu">
-              <li class="nav-item"><i class="material-icons">navigate_next</i> <a class="nav-link" href="{{ route('admin.transaksi') }}">Pesanan Baru</a></li>
+              {{-- <li class="nav-item"><i class="material-icons">navigate_next</i> <a class="nav-link" href="{{ route('admin.transaksi') }}">Pesanan Baru</a></li> --}}
               {{-- <li class="nav-item"> <a class="nav-link" href="{{ route('admin.transaksi.perludicek') }}">Perlu Di Cek</a></li> --}}
-                <li class="nav-item"><i class="material-icons">navigate_next</i>  <a class="nav-link" href="{{ route('admin.transaksi.perludikirim') }}">Barang Sedang Disiapkan</a></li>
+                <li class="nav-item"><i class="material-icons">navigate_next</i>  <a class="nav-link" href="{{ route('admin.transaksi.perludikirim') }}">Pesanan Baru</a></li>
                 {{-- <li class="nav-item"> <a class="nav-link" href="{{ route('admin.transaksi.dikirim') }}">Barang Di Kirim</a></li> --}}
                 <li class="nav-item"> <i class="material-icons">navigate_next</i> <a class="nav-link" href="{{ route('admin.transaksi.selesai') }}">Pesanan Telah Selesai</a></li>
                 <li class="nav-item"> <i class="material-icons">navigate_next</i> <a class="nav-link" href="{{ route('admin.transaksi.dibatalkan') }}">Pesanan Yang dibatalkan</a></li>
@@ -121,7 +121,7 @@ The above copyright notice and this permission notice shall be included in all c
                   </p>
                 </a>
                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownMenuLink">
-                    <a class="dropdown-item" href="{{ route('admin.transaksi') }}">Ada {{ $order_baru->count() }} Pesanan Baru</a>
+                    <a class="dropdown-item" href="{{ route('admin.transaksi.perludikirim') }}">Ada {{ $order_baru->count() }} Pesanan Baru</a>
 
                   </div>
 

@@ -48,20 +48,38 @@
         </div> -->
         <div class="row mb-5">
             @foreach($produks as $produk)
-            <div class="col-sm-6 col-lg-4 mb-4" data-aos="fade-up">
-            <div class="block-4 text-center border">
-                <a href="{{ route('user.produk.detail',['id' =>  $produk->id]) }}">
-                    <img src="{{ asset('storage/' . $produk->image) }}" alt="Image placeholder" class="img-fluid" width="100%" style="height:200px">
-                </a>
-                <div class="block-4-text p-4">
-                <h3><a href="{{ route('user.produk.detail',['id' =>  $produk->id]) }}">{{ $produk->name }}</a></h3>
-                <p class="mb-0">RP {{ $produk->price }}</p>
-                <a href="{{ route('user.produk.detail',['id' =>  $produk->id]) }}" class="btn btn-primary mt-2">Detail</a>
+
+            <div class="col-lg-3">
+                <div class="product-item">
+                    <div class="product-title">
+                        <a href="{{ route('user.produk.detail',['id' =>  $produk->id]) }}">{{ $produk->name }}</a>
+                        <div class="ratting">
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                        </div>
+                    </div>
+                    <div class="product-image">
+                        <a href="product-detail.html">
+                            <img src="{{ asset('storage/'.$produk->image) }}" alt="Product Image" alt="Image placeholder" class="img-fluid" width="100%" style="height:200px">
+                        </a>
+                        <div class="product-action">
+                            <h3><span>Stok : </span> {{$produk->stok}} </h3>
+                        </div>
+                    </div>
+                    <div class="product-price">
+                        <h6><span>Rp. </span>{{ number_format($produk->price)}}</h6>
+
+                        <a class="btn" href="{{ route('user.produk.detail',['id' =>  $produk->id]) }}"><i class="fa fa-shopping-cart text-white"></i>Buy Now</a>
+                    </div>
+                    <br>
                 </div>
             </div>
-            </div>
+
             @endforeach
-            
+
 
         </div>
         <div class="row" data-aos="fade-up">
@@ -73,7 +91,7 @@
         </div>
         </div>
 
-       
+
 
         <!-- <div class="border p-4 rounded mb-4">
             <div class="mb-4">
@@ -114,7 +132,7 @@
         </div> -->
         </div>
     </div>
-    
+
     </div>
 </div>
 @endsection
